@@ -1,4 +1,15 @@
-<div class="heading">
-    <h1>Quotes:</h1>
-    <p>Input your Quotes and have them displayed as you impart wisdom onto further generations to come:</p>
+<div class="right-half">
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1>The Quotes:</h1>
+                <hr>
+                <ul>
+                    <li *ngFor='let quote of quotes'>
+                      {{quote.name}}
+                    </li>
+                </ul>
+              </div>
+        </div>
+    </div>
 </div>
