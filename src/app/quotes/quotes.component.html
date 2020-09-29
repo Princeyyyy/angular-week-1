@@ -1,16 +1,22 @@
-<div class="right-half">
-    <div class="container">
-        <div class="row">
-            <h1>Quotes:</h1>
-        <ul>
-            <div *ngFor='let quote of quotes; let i = index'>
-                <li>
-                    {{quote.name}}
-                </li>
-                <button (click)='toggleDetails(i)'>Toggle Details</button>
-                <app-quote-details *ngIf='quote.showDescription' [quotes]='quote'></app-quote-details>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <app-quote-form (add)="addedQuote($event)"></app-quote-form>
+      </div>
+      <div class="col-sm-8">
+        <div class="all-cards">
+          <div *ngFor="let quote of sortQuotes let i= index" class="card" style="width: 24rem;"  >
+            <div class="card-body">
+              <h4 class="card-title" appHighlightQoute >{{quote.title}} <button (click)='displayInfo(i)' class="btn btn-info btn-sm" id="quotes-button" >See More</button></h4>
+              <p class="card-text" id="param"><strong><em>{{quote.quote}}</em></strong></p>
+              <app-quote-details *ngIf='quote.showInfo'></app-quote-details>
+              <span class="card-subtitle mb-2">Posted by: {{quote.name}} on: {{quote.datePosted|date:'short'}}</span>
+              <br>
+              <span class="card-subtitle mb-2"><em>Quote has been there for {{quote.datePosted|dateAgo}}</em></span>
+              
             </div>
-        </ul>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>

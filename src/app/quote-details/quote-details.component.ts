@@ -6,14 +6,17 @@ import { Quote } from '../quote';
   templateUrl: './quote-details.component.html',
   styleUrls: ['./quote-details.component.css']
 })
-
 export class QuoteDetailsComponent implements OnInit {
-
-  @Input() quotes: Quote;
-  @Output() isComplete = new EventEmitter<boolean>();
-
-  quoteComplete(complete:boolean){
-    this.isComplete.emit(complete);
+  @Input() quoty: Quote;
+  @Output() isRead = new EventEmitter<boolean>();
+  deleteQuote(read:boolean){
+    this.isRead.emit(read);
+  }
+  upvote(){
+    this.quoty.likes+=1;
+  }
+  downvote(){
+    this.quoty.dislikes+=1;
   }
   constructor() { }
 

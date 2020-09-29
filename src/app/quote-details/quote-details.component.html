@@ -1,3 +1,5 @@
-<p>
-    {{quotes.description}}
-</p>
+<div class="container-fluid" id="buttons">
+  <button class="btn btn-sm btn-success" (click)='upvote()'>{{quoty.likes}} <i class="fa fa-thumbs-up" id="like">Upvote</i></button> 
+  <button class="btn btn-sm btn-primary" id="hate" (click)='downvote()'>{{quoty.dislikes}} <i class="fa fa-thumbs-down" id="dislike">Downvote</i></button> 
+  <button class="btn btn-sm btn-danger" id="del" (click)='deleteQuote(true)'><i class="fa fa-trash" id="delete">Delete</i></button> 
+</div>
